@@ -126,3 +126,26 @@ $ tar xvf ~/poky/build/tmp/deploy/image/zynqmp-generic/petalinux-...-generic.tar
 Use balenaEtcher load wic.gz to sdcard
 (poky/build/tmp/deploy/image/YOUR_MACHINE/***.wic.gz)
 Then replace boot src and system.dtb from your sd-card boot folder.
+
+
+## Configuration
+帳號：root 
+密碼：nino123x
+
+網路設定：
+/etc/network/interfaces 更改ip 以及gateway 等等
+
+無線網路：
+/etc/wpa_supplicant/wpa_supplicant下更改帳號密碼即可
+Proxmox網頁：
+https://ip:8006
+
+Talos k8s部署：
+（如果node 關機打不開 
+cd ~/Edge-Cloud/01-…/
+nano var.ft 先把num_master跟num_worker設為0 在該目錄下執行terraform apply（yes)
+在將剛剛num設回1（master)2(worker) 再執行terraform apply （yes)跑好後 
+cd ~
+./bootstrap.sh （該檔案的最後兩行 執行一次即可）
+(選擇overwrite) 即可使用kubectl 去做操作
+
